@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -90,6 +91,10 @@
             document.querySelector('.verification-option').style.display = 'none';
             document.querySelector('.otp-form').style.display = 'block';
         }
+
+        function goToFormulir() {
+            window.location.href = "formulir.html";
+        }
     </script>
 </head>
 
@@ -102,8 +107,8 @@
         </div>
         <div class="otp-form" style="display:none;">
             <p>Masukkan kode verifikasi (OTP) yang telah kami kirim ke akun Gmail Anda:</p>
-            <input type="text" placeholder="Kode OTP">
-            <button>Verifikasi</button>
+            <input type="text" placeholder="Kode OTP" id="otpCode">
+            <button onclick="goToFormulir()">Verifikasi</button>
         </div>
         <div class="security">
             Data Anda aman dan terlindungi.
